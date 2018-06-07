@@ -1,0 +1,20 @@
+/* Background image */
+.jumbotron {
+    text-align: center;
+    background-image: url("../derek-truninger-509493-unsplash.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    
+    
+  }
+  
+ .display-4 {
+    color:   rgb(250, 232, 190);
+  
+ }
+ .lead {
+    color: rgb(250, 232, 190);
+ }
+ 
+
