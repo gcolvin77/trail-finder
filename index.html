@@ -11,11 +11,96 @@
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css" />
 </head>
+
 <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card bg-success">
+                    <div class="card-body">
+                        <form>
+                            <div class="form-row justify-content-end">
+                                <div class="col-auto">
+                                    <label class="sr-only" for="inlineFormInput">Name</label>
+                                    <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Jane Doe">
+                                </div>
+                                <div class="col-auto">
+                                </div>
+                                <div class="col-auto">
+                                    <button type="submit" class="btn btn-light mb-2 name-button">Start</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                        <h1 class="display-4">Fluid jumbotron</h1>
+                        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form>
+                            <div class="form-row align-items-center">
+                                <div class="col-auto">
+                                    <label class="sr-only" for="inlineFormInput">City</label>
+                                    <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="city">
+                                </div>
+                                <div class="col-auto">
+                                    <label class="sr-only" for="inlineFormInput">State</label>
+                                    <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="state">
+                                </div>
+                                <div class="col-auto">
+                                    <label class="sr-only" for="inlineFormInput">Zip Code</label>
+                                    <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="zip">
+                                </div>
+                                <div class="col-auto">
+                                    <label class="sr-only" for="inlineFormInput">Date</label>
+                                    <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="date">
+                                </div>
+                                <div class="col-auto">
+                                    <button type="submit" class="btn btn-success mb-2 search">Find My Trail</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <table class="table">
+                        <thead>
+                          <tr class="bg-success">
+                            <th scope="col">Name</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">length</th>
+                            <th scope="col">ascent</th>
+                            <th scope="col">stars</th>
+                            <th scope="col">difficulty</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Some Name Here</td>
+                            <td>Location Here</td>
+                            <td>Length Here</td>
+                            <td>Ascent Here</td>
+                            <td>Stars Here</td>
+                            <td>Difficulty Here</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-
-    
 
     <script src="javascript.js"></script>
 </body>
