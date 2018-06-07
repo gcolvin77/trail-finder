@@ -7,10 +7,16 @@
     <title>Trail Finder</title>
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- JavaScript -->
+    <script src="APIKeys.js"></script>
+    <script src="assets/trailLogic.js"></script>
 </head>
 <body>
     <div class="container">
@@ -61,19 +67,28 @@
                                 </div>
                                 <div class="col-auto">
                                     <label class="sr-only" for="inlineFormInput">Zip Code</label>
-                                    <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="zip">
+                                    <input type="text" class="form-control mb-2 zip-input" id="inlineFormInput" placeholder="zip">
                                 </div>
                                 <div class="col-auto">
                                     <label class="sr-only" for="inlineFormInput">Date</label>
                                     <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="date">
                                 </div>
                                 <div class="col-auto">
+                                    <label class="sr-only" for="inlineFormInput">Radius</label>
+                                    <input type="text" class="form-control mb-2 radius-input" id="inlineFormInput" placeholder="Radius">
+                                </div>
+                                <div class="col-auto">
+                                    <label class="sr-only" for="inlineFormInput">Results</label>
+                                    <input type="text" class="form-control mb-2 results-input" id="inlineFormInput" placeholder="Results">
+                                </div>
+                                <div class="col-auto">
                                     <button type="submit" class="btn btn-success mb-2 search">Find My Trail</button>
                                 </div>
+                                
                             </div>
                         </form>
                     </div>
-                    <table class="table">
+                    <table>
                         <thead>
                           <tr class="bg-success">
                             <th scope="col">Name</th>
@@ -84,7 +99,7 @@
                             <th scope="col">difficulty</th>
                           </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="trail-results">
                           <tr>
                             <td>Some Name Here</td>
                             <td>Location Here</td>
@@ -101,8 +116,6 @@
     </div>
 
 
-
-    <script src="javascript.js"></script>
 </body>
 
 </html>
