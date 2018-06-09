@@ -84,7 +84,7 @@ function trailTest() {
     //event.preventDefault();
     inputRadius = $(".radius-input").val().trim();
     if (inputRadius === "") {
-        inpurRadius = 30;
+        inputRadius = 30;
     }
     inputResults = $(".results-input").val().trim();
     if (inputResults === "") {
