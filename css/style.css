@@ -4,17 +4,20 @@
     background-image: url("../derek-truninger-509493-unsplash.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    opacity: 0.5;
+    opacity: 0.6;
     
     
   }
   
  .display-4 {
-    color:   rgb(250, 232, 190);
+    color:   rgb(2, 2, 2);
+    opacity:2;
   
  }
  .lead {
-    color: rgb(250, 232, 190);
+    color: rgb(2,2,2);
+    opacity:2;
+    font:bold;
  }
  
 
