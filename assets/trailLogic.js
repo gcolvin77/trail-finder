@@ -111,6 +111,7 @@ function trailTest() {
         var trailLength = "";
         var trailStars = "";
         var trailDifficulty = "";
+        var simpleTrailDifficulty = "";
         var trailID = "";
         $(".trail-results").empty();
         for (i = 0; i < response.trails.length; i++) {
@@ -120,9 +121,29 @@ function trailTest() {
             trailAscent = response.trails[i].ascent;
             trailStars = response.trails[i].stars;
             trailDifficulty = response.trails[i].difficulty;
+            //logic to change difficulty from api to simple ratings
+            
+            if (trailDifficulty==="Green") {
+                simpleTrailDifficutly="Very Easy";
+            } else if (trailDifficulty==="greenBlue") { 
+                simpleTrailDifficutly="Easy";
+            }else if (trailDifficulty==="Blue") { 
+                simpleTrailDifficutly="Moderate";
+            }else if (trailDifficulty==="blueBlack") { 
+                simpleTrailDifficutly="Somewhat Hard";
+            }else if (trailDifficulty==="Black") { 
+                simpleTrailDifficutly="Hard";
+            }else if (trailDifficulty==="dblack") { 
+                simpleTrailDifficutly="Very Hard";
+            } else {
+            //     simpleTrailDifficulty="Unknown";
+            // };
+            console.log("TD: " + trailDifficulty);
+            console.log("SD: " + simpleTrailDifficutly);
+            };
             trailID = response.trails[i].id
 
-            $(".trail-results").append("<tr><td>" + trailName + "</td><td>" + trailLocation + "</td><td>" + trailLength + "</td><td>" + trailAscent + "</td><td>" + trailStars + "</td><td>" + trailDifficulty + "</td><td>" + "<button class= new-trail-id ID=" + trailID + ">View Trail</button>" + "</td></tr>");
+            $(".trail-results").append("<tr><td>" + trailName + "</td><td>" + trailLocation + "</td><td>" + trailLength + "</td><td>" + trailAscent + "</td><td>" + trailStars + "</td><td>" + simpleTrailDifficutly + "</td><td>" + "<button class= new-trail-id ID=" + trailID + ">View Trail</button>" + "</td></tr>");
         };
 
     })
@@ -140,7 +161,7 @@ function newTrail() {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        trailURL=response.trails[0].url;
+        trailURL = response.trails[0].url;
         console.log(trailURL);
     });
 };
