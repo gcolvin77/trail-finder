@@ -1,3 +1,18 @@
+// 1. Initialize Firebase
+var config = {
+    apiKey: "AIzaSyBgFsP0ttl-Cm_uFIFBjPuBZQfxW7O7uOA",
+    authDomain: "hikingproject-33.firebaseapp.com",
+    databaseURL: "https://hikingproject-33.firebaseio.com",
+    projectId: "hikingproject-33",
+    storageBucket: "hikingproject-33.appspot.com",
+    messagingSenderId: "970307116122"
+  };
+ 
+ firebase.initializeApp(config);
+ 
+ var database = firebase.database();
+
+
 $(document).ready(function () {
 
 });
@@ -122,24 +137,24 @@ function trailTest() {
             trailStars = response.trails[i].stars;
             trailDifficulty = response.trails[i].difficulty;
             //logic to change difficulty from api to simple ratings
-            
-            if (trailDifficulty==="Green") {
-                simpleTrailDifficutly="Very Easy";
-            } else if (trailDifficulty==="greenBlue") { 
-                simpleTrailDifficutly="Easy";
-            }else if (trailDifficulty==="Blue") { 
-                simpleTrailDifficutly="Moderate";
-            }else if (trailDifficulty==="blueBlack") { 
-                simpleTrailDifficutly="Somewhat Hard";
-            }else if (trailDifficulty==="Black") { 
-                simpleTrailDifficutly="Hard";
-            }else if (trailDifficulty==="dblack") { 
-                simpleTrailDifficutly="Very Hard";
+
+            if (trailDifficulty === "Green") {
+                simpleTrailDifficutly = "Very Easy";
+            } else if (trailDifficulty === "greenBlue") {
+                simpleTrailDifficutly = "Easy";
+            } else if (trailDifficulty === "Blue") {
+                simpleTrailDifficutly = "Moderate";
+            } else if (trailDifficulty === "blueBlack") {
+                simpleTrailDifficutly = "Somewhat Hard";
+            } else if (trailDifficulty === "Black") {
+                simpleTrailDifficutly = "Hard";
+            } else if (trailDifficulty === "dblack") {
+                simpleTrailDifficutly = "Very Hard";
             } else {
-            //     simpleTrailDifficulty="Unknown";
-            // };
-            console.log("TD: " + trailDifficulty);
-            console.log("SD: " + simpleTrailDifficutly);
+                //     simpleTrailDifficulty="Unknown";
+                // };
+                console.log("TD: " + trailDifficulty);
+                console.log("SD: " + simpleTrailDifficutly);
             };
             trailID = response.trails[i].id
 
@@ -173,4 +188,43 @@ $(document).on("click", ".search", zipCode);
 //call search function on click of submit button
 $(document).on("click", ".new-trail-id", newTrail);
 
+//creating a username ?
+$(document).on("click", ".name-button", function(){
+    event.preventDefault();
+    var yourName =$(".user-name").val()
+    var user = {
+        name: yourName,
+        favorites: "",
+        goal: "",
+        
+        
+       };
+       database.ref("/users").push(user)
+});
 
+
+//     event.preventDefault();
+
+//     user = {
+//         name: $("#nameInput").val().trim(),
+//         selection: ""
+//     }
+
+//     $("#nameInput").val("");
+//     $(".form-inline").hide();
+//     $("#messageInput").show();
+//     $("#messageSubmit").show();
+
+//     var ref = firebase.database().ref("active");
+//     ref.once("value")
+//         .then(function (snapshot) {
+//                 var activeUsers = snapshot.numChildren();
+//                 console.log(activeUsers);
+
+
+
+//             }
+
+//         }); //end snapshot for "active"      
+
+// }); //end name submit event
