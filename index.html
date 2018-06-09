@@ -18,6 +18,7 @@
     <script src="APIKeys.js"></script>
     <script src="assets/trailLogic.js"></script>
 </head>
+
 <body>
     <div class="container">
         <div class="row">
@@ -55,15 +56,25 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
+                        <!-- added new -->
+                        <!-- <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link new-trails" href="#">Find New Trails</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link favorite-trails" href="#">Favorite Trails</a>
+                            </li>
+
+                        </ul> -->
                         <form>
                             <div class="form-row align-items-center">
                                 <div class="col-auto">
                                     <label class="sr-only" for="inlineFormInput">City</label>
-                                    <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="city">
+                                    <input type="text" class="form-control mb-2 city-input" id="inlineFormInput" placeholder="city">
                                 </div>
                                 <div class="col-auto">
                                     <label class="sr-only" for="inlineFormInput">State</label>
-                                    <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="state">
+                                    <input type="text" class="form-control mb-2 state-input" id="inlineFormInput" placeholder="state">
                                 </div>
                                 <div class="col-auto">
                                     <label class="sr-only" for="inlineFormInput">Zip Code</label>
@@ -84,32 +95,33 @@
                                 <div class="col-auto">
                                     <button type="submit" class="btn btn-success mb-2 search">Find My Trail</button>
                                 </div>
-                                
+
                             </div>
                         </form>
                     </div>
                     <table>
                         <thead>
-                          <tr class="bg-success">
-                            <th scope="col">Name</th>
-                            <th scope="col">Location</th>
-                            <th scope="col">length</th>
-                            <th scope="col">ascent</th>
-                            <th scope="col">stars</th>
-                            <th scope="col">difficulty</th>
-                          </tr>
+                            <tr class="bg-success">
+                                <th scope="col">Name</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">length</th>
+                                <th scope="col">ascent</th>
+                                <th scope="col">stars</th>
+                                <th scope="col">difficulty</th>
+                                <th scope="col">View Trail</th>
+                            </tr>
                         </thead>
                         <tbody class="trail-results">
-                          <tr>
+                            <!-- <tr>
                             <td>Some Name Here</td>
                             <td>Location Here</td>
                             <td>Length Here</td>
                             <td>Ascent Here</td>
                             <td>Stars Here</td>
                             <td>Difficulty Here</td>
-                          </tr>
+                          </tr> -->
                         </tbody>
-                      </table>
+                    </table>
                 </div>
             </div>
         </div>
