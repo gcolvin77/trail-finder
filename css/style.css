@@ -1,0 +1,26 @@
+/* Background image */
+.jumbotron {
+    text-align: center;
+    background-image: url("pics/girl.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    }
+  
+ .display-4 {
+    color:   rgb(2, 2, 2);
+   
+  
+ }
+ .lead {
+    color: rgb(2,2,2);
+    
+    font:bold;
+ }
+ .jumbo2 {
+   background-image: url("pics/trails.jpg")
+ }
+
+ 
+ 
+
