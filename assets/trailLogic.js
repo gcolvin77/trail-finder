@@ -203,18 +203,18 @@ $(document).on("click", ".name-button", function(){
 });
 
 // saving your favorites 
-$(document).on("click", ".favs", function(){
-    event.preventDefault();
-    var yourName =$(".user-name").val()
-    var user = {
-        name: yourName,
-        favorites: "",
-        goal: "",
+// $(document).on("click", ".favs", function(){
+//     event.preventDefault();
+//     var yourName =$(".user-name").val()
+//     var user = {
+//         name: yourName,
+//         favorites: "",
+//         goal: "",
         
         
-       };
-       database.ref("/users").push(user)
-});
+//        };
+//        database.ref("/users").push(user)
+// });
 
 
 
