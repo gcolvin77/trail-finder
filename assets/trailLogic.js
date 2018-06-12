@@ -159,11 +159,14 @@ function trailTest() {
             };
             trailID = response.trails[i].id
 
-            $(".trail-results").append("<tr><td>" + trailName + "</td><td>" + trailLocation + "</td><td>" + trailLength + "</td><td>" + trailAscent + "</td><td>" + trailStars + "</td><td>" + simpleTrailDifficutly + "</td><td>" + "<a href='trail.html'><button  class= new-trail-id ID= " + trailID + ">View Trail</button> </a>" + "</td></tr>");
+            $(".trail-results").append("<tr><td>" + trailName + "</td><td>" + trailLocation + "</td><td>" + trailLength + "</td><td>" + trailAscent + "</td><td>" + trailStars + "</td><td>" + simpleTrailDifficutly + "</td><td>" + "<a href='trail.html' class='new-trail-id' ID= " + trailID + ">View Trail</div> </a>" + "</td></tr>");
         };
 
     })
 };
+// $(document).on("click", ".new-trail-id", function(event){
+//     event.preventDefault();
+// })
 
 
 //ajax call for when you view details of the trail you clicked on
