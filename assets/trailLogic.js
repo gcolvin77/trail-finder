@@ -202,6 +202,21 @@ $(document).on("click", ".name-button", function(){
        database.ref("/users").push(user)
 });
 
+// saving your favorites 
+// $(document).on("click", ".favs", function(){
+//     event.preventDefault();
+//     var yourName =$(".user-name").val()
+//     var user = {
+//         name: yourName,
+//         favorites: "",
+//         goal: "",
+        
+        
+//        };
+//        database.ref("/users").push(user)
+// });
+
+
 
 //     event.preventDefault();
 
