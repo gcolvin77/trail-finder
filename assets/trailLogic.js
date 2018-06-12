@@ -192,12 +192,11 @@ $(document).on("click", ".new-trail-id", newTrail);
 $(document).on("click", ".name-button", function(){
     event.preventDefault();
     var yourName =$(".user-name").val()
+    console.log(yourName);
     var user = {
         name: yourName,
         favorites: "",
         goal: "",
-        
-        
        };
        database.ref("/users").push(user)
 });
