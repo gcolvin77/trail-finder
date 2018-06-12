@@ -65,120 +65,73 @@
         </div>
         <div class="row">
             <div class="col-md-12">
+                <div class="card-body">
+                    <form>
+                        <div class="form-row align-items-center">
+                            <div class="col-auto">
+                                <label class="sr-only" for="inlineFormInput">City</label>
+                                <input type="text" class="form-control mb-2 city-input" id="inlineFormInput" placeholder="city">
+                            </div>
+                            <div class="col-auto">
+                                <label class="sr-only" for="inlineFormInput">State</label>
+                                <input type="text" class="form-control mb-2 state-input" id="inlineFormInput" placeholder="state">
+                            </div>
+                            <div class="col-auto">
+                                <label class="sr-only" for="inlineFormInput">Zip Code</label>
+                                <input type="text" class="form-control mb-2 zip-input" id="inlineFormInput" placeholder="zip">
+                            </div>
+                            <div class="col-auto">
+                                <label class="sr-only" for="inlineFormInput">Date</label>
+                                <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="date">
+                            </div>
+                            <div class="col-auto">
+                                <label class="sr-only" for="inlineFormInput">Radius</label>
+                                <input type="text" class="form-control mb-2 radius-input" id="inlineFormInput" placeholder="Radius">
+                            </div>
+                            <div class="col-auto">
+                                <label class="sr-only" for="inlineFormInput">Results</label>
+                                <input type="text" class="form-control mb-2 results-input" id="inlineFormInput" placeholder="Results">
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-success mb-2 search">Find My Trail</button>
+                            </div>
+                        </div>
+                        <br>
+                        <!-- add navigation for new trails and favorite trails -->
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="newtrails-tab" data-toggle="tab" href="#newtrails" role="tab" aria-controls="new-trails" aria-selected="true">New Trail Search</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="favoritetrails-tab" data-toggle="tab" href="#favoritetrails" role="tab" aria-controls="favoritetrails"
+                                    aria-selected="false">Favorite Trails</a>
+                            </li>
+                        </ul>
+                        <table class="col-md-12">
+                            <thead>
+                                <tr class="bg-success">
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Location</th>
+                                    <th scope="col">length</th>
+                                    <th scope="col">ascent</th>
+                                    <th scope="col">stars</th>
+                                    <th scope="col">difficulty</th>
+                                    <th scope="col">View Trail</th>
+                                </tr>
+                            </thead>
+                            <tbody class="trail-results">
+                            </tbody>
+                        </table>
+                </div>
+                <div class="tab-pane" id="favoritetrails" role="tabpanel" aria-labelledby="favoritetrails-tab">
                     <div class="card-body">
-                        <form>
-                            <div class="form-row align-items-center">
-                                <div class="col-auto">
-                                    <label class="sr-only" for="inlineFormInput">City</label>
-                                    <input type="text" class="form-control mb-2 city-input" id="inlineFormInput" placeholder="city">
-                                </div>
-                                <div class="col-auto">
-                                    <label class="sr-only" for="inlineFormInput">State</label>
-                                    <input type="text" class="form-control mb-2 state-input" id="inlineFormInput" placeholder="state">
-                                </div>
-                                <div class="col-auto">
-                                    <label class="sr-only" for="inlineFormInput">Zip Code</label>
-                                    <input type="text" class="form-control mb-2 zip-input" id="inlineFormInput" placeholder="zip">
-                                </div>
-                                <div class="col-auto">
-                                    <label class="sr-only" for="inlineFormInput">Date</label>
-                                    <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="date">
-                                </div>
-                                <div class="col-auto">
-                                    <label class="sr-only" for="inlineFormInput">Radius</label>
-                                    <input type="text" class="form-control mb-2 radius-input" id="inlineFormInput" placeholder="Radius">
-                                </div>
-                                <div class="col-auto">
-                                    <label class="sr-only" for="inlineFormInput">Results</label>
-                                    <input type="text" class="form-control mb-2 results-input" id="inlineFormInput" placeholder="Results">
-                                </div>
-                                <div class="col-auto">
-                                    <button type="submit" class="btn btn-success mb-2 search">Find My Trail</button>
-                                </div>
-                    <!-- add navigation for new trails and favorite trails -->
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="newtrails-tab" data-toggle="tab" href="#newtrails" role="tab" aria-controls="new-trails" aria-selected="true">New Trail Search</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="favoritetrails-tab" data-toggle="tab" href="#favoritetrails" role="tab" aria-controls="favoritetrails"
-                                aria-selected="false">Favorite Trails</a>
-                        </li>
-                    </ul>
-
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="newtrails" role="tabpanel" aria-labelledby="home-tab">
-                            <div class="card-body">
-                                <form>
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto">
-                                            <label class="sr-only" for="inlineFormInput">City</label>
-                                            <input type="text" class="form-control mb-2 city-input" id="inlineFormInput" placeholder="city">
-                                        </div>
-                                        <div class="col-auto">
-                                            <label class="sr-only" for="inlineFormInput">State</label>
-                                            <input type="text" class="form-control mb-2 state-input" id="inlineFormInput" placeholder="state">
-                                        </div>
-                                        <div class="col-auto">
-                                            <label class="sr-only" for="inlineFormInput">Zip Code</label>
-                                            <input type="text" class="form-control mb-2 zip-input" id="inlineFormInput" placeholder="zip">
-                                        </div>
-                                        <div class="col-auto">
-                                            <label class="sr-only" for="inlineFormInput">Date</label>
-                                            <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="date">
-                                        </div>
-                                        <div class="col-auto">
-                                            <label class="sr-only" for="inlineFormInput">Radius</label>
-                                            <input type="text" class="form-control mb-2 radius-input" id="inlineFormInput" placeholder="Radius">
-                                        </div>
-                                        <div class="col-auto">
-                                            <label class="sr-only" for="inlineFormInput">Results</label>
-                                            <input type="text" class="form-control mb-2 results-input" id="inlineFormInput" placeholder="Results">
-                                        </div>
-                                        <div class="col-auto">
-                                            <button type="submit" class="btn btn-success mb-2 search">Find My Trail</button>
-                                        </div>
-
-                                    </div>
-                                </form>
-                            </div>
-                            <table class="col-md-12">
-                                <thead>
-                                    <tr class="bg-success">
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Location</th>
-                                        <th scope="col">length</th>
-                                        <th scope="col">ascent</th>
-                                        <th scope="col">stars</th>
-                                        <th scope="col">difficulty</th>
-                                        <th scope="col">View Trail</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="trail-results">
-                                    <!-- <tr>
-                                        <td>Some Name Here</td>
-                                        <td>Location Here</td>
-                                        <td>Length Here</td>
-                                        <td>Ascent Here</td>
-                                        <td>Stars Here</td>
-                                        <td>Difficulty Here</td>
-                                      </tr> -->
-                                </tbody>
-                            </table>
-
-                        </div>
-                        <div class="tab-pane" id="favoritetrails" role="tabpanel" aria-labelledby="favoritetrails-tab">
-                            <div class="card-body">
-                                <button type="submit" class="btn btn-success mb-2">Get My Favorite Trails</button>
-                            </div>
-                        </div>
-
+                        <button type="submit" class="btn btn-success mb-2">Get My Favorite Trails</button>
                     </div>
-
-
                 </div>
             </div>
         </div>
+    </div>
+    </div>
     </div>
 
 
