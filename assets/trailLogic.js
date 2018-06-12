@@ -94,6 +94,7 @@ function zipCode() {
     };
 };
 
+//gets the longitude and lattitude for the zip you entered 
 function trailTest() {
     //clear div
     //event.preventDefault();
@@ -158,13 +159,14 @@ function trailTest() {
             };
             trailID = response.trails[i].id
 
-            $(".trail-results").append("<tr><td>" + trailName + "</td><td>" + trailLocation + "</td><td>" + trailLength + "</td><td>" + trailAscent + "</td><td>" + trailStars + "</td><td>" + simpleTrailDifficutly + "</td><td>" + "<button class= new-trail-id ID=" + trailID + ">View Trail</button>" + "</td></tr>");
+            $(".trail-results").append("<tr><td>" + trailName + "</td><td>" + trailLocation + "</td><td>" + trailLength + "</td><td>" + trailAscent + "</td><td>" + trailStars + "</td><td>" + simpleTrailDifficutly + "</td><td>" + "<a href='trail.html'><button  class= new-trail-id ID= " + trailID + ">View Trail</button> </a>" + "</td></tr>");
         };
 
     })
 };
 
-//function to open new window for specific trail
+
+//ajax call for when you view details of the trail you clicked on
 function newTrail() {
     var currBtn = $(this).attr('ID');
     //alert(currBtn);
@@ -179,6 +181,7 @@ function newTrail() {
         trailURL = response.trails[0].url;
         console.log(trailURL);
     });
+
 };
 
 

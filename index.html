@@ -65,7 +65,36 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
+                    <div class="card-body">
+                        <form>
+                            <div class="form-row align-items-center">
+                                <div class="col-auto">
+                                    <label class="sr-only" for="inlineFormInput">City</label>
+                                    <input type="text" class="form-control mb-2 city-input" id="inlineFormInput" placeholder="city">
+                                </div>
+                                <div class="col-auto">
+                                    <label class="sr-only" for="inlineFormInput">State</label>
+                                    <input type="text" class="form-control mb-2 state-input" id="inlineFormInput" placeholder="state">
+                                </div>
+                                <div class="col-auto">
+                                    <label class="sr-only" for="inlineFormInput">Zip Code</label>
+                                    <input type="text" class="form-control mb-2 zip-input" id="inlineFormInput" placeholder="zip">
+                                </div>
+                                <div class="col-auto">
+                                    <label class="sr-only" for="inlineFormInput">Date</label>
+                                    <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="date">
+                                </div>
+                                <div class="col-auto">
+                                    <label class="sr-only" for="inlineFormInput">Radius</label>
+                                    <input type="text" class="form-control mb-2 radius-input" id="inlineFormInput" placeholder="Radius">
+                                </div>
+                                <div class="col-auto">
+                                    <label class="sr-only" for="inlineFormInput">Results</label>
+                                    <input type="text" class="form-control mb-2 results-input" id="inlineFormInput" placeholder="Results">
+                                </div>
+                                <div class="col-auto">
+                                    <button type="submit" class="btn btn-success mb-2 search">Find My Trail</button>
+                                </div>
                     <!-- add navigation for new trails and favorite trails -->
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
@@ -80,7 +109,6 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="newtrails" role="tabpanel" aria-labelledby="home-tab">
                             <div class="card-body">
-
                                 <form>
                                     <div class="form-row align-items-center">
                                         <div class="col-auto">
