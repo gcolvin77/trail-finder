@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="css/pikaday.css">
+    <link rel="stylesheet" href="css/site.css">
 
 
 
@@ -25,6 +27,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
     <!-- JavaScript -->
     <script src="APIKeys.js"></script>
+    <script type="text/javascript" src="assets/moment.js"></script>
     <script src="assets/trailLogic.js"></script>
 
 </head>
@@ -97,7 +100,7 @@
                                         </div>
                                         <div class="col-auto">
                                             <label class="sr-only" for="inlineFormInput">Date</label>
-                                            <input type="text" class="form-control mb-2 date-input" id="inlineFormInput" placeholder="date">
+                                            <input type="text" class="form-control mb-2 date-input" id="datepicker" placeholder="date">
                                         </div>
                                         <div class="col-auto">
                                             <label class="sr-only" for="inlineFormInput">Radius</label>
@@ -112,6 +115,7 @@
                                         </div>
 
                                     </div>
+
                                 </form>
                             </div>
                             <table class="col-md-12">
@@ -176,6 +180,22 @@
             </div>
         </div>
     </div>
+
+
+    <script src="pikaday.js"></script>
+    <script>
+
+    var picker = new Pikaday(
+    {
+        field: document.getElementById('datepicker'),
+        firstDay: 1,
+        minDate: new Date(),
+        maxDate: new Date(2018, 12, 31),
+        yearRange: [2018,2019],
+        format: 'MMM D YYYY'
+    });
+
+    </script>
 
 
 </body>
