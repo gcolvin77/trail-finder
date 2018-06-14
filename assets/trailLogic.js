@@ -22,6 +22,15 @@ var latitude;
 var inputRadius;
 var inputResults;
 
+        // Get the modal
+        var modal = document.getElementById('locationModal');
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("findBtn");
+        
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
 
 function zipCode() {
     event.preventDefault();
@@ -47,7 +56,9 @@ function zipCode() {
     //logic for input
     //if location is empty then display an alert
     if (inputCity === "" && inputState === "" && inputZip === "") {
-        alert("Please enter a location");
+        $('#exampleModal').modal('show');
+
+
         //runs code if location is not empty
     } else {
         inputCombined = (outputCity + outputState + outputZip).trim();
@@ -65,9 +76,6 @@ function zipCode() {
         console.log("output: " + outputCombined);
         console.log("final output: " + finalOutput);
 
-
-        // console.log(inputZip);
-        // console.log(inputRadius);
 
         var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + finalOutput + "&key=" + APIKeys.google
 
@@ -207,44 +215,3 @@ $(document).on("click", ".name-button", function(){
        database.ref("/users").push(user)
 });
 
-// saving your favorites 
-// $(document).on("click", ".favs", function(){
-//     event.preventDefault();
-//     var yourName =$(".user-name").val()
-//     var user = {
-//         name: yourName,
-//         favorites: "",
-//         goal: "",
-        
-        
-//        };
-//        database.ref("/users").push(user)
-// });
-
-
-
-//     event.preventDefault();
-
-//     user = {
-//         name: $("#nameInput").val().trim(),
-//         selection: ""
-//     }
-
-//     $("#nameInput").val("");
-//     $(".form-inline").hide();
-//     $("#messageInput").show();
-//     $("#messageSubmit").show();
-
-//     var ref = firebase.database().ref("active");
-//     ref.once("value")
-//         .then(function (snapshot) {
-//                 var activeUsers = snapshot.numChildren();
-//                 console.log(activeUsers);
-
-
-
-//             }
-
-//         }); //end snapshot for "active"      
-
-// }); //end name submit event
