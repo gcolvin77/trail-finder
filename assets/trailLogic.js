@@ -6,11 +6,11 @@ var config = {
     projectId: "hikingproject-33",
     storageBucket: "hikingproject-33.appspot.com",
     messagingSenderId: "970307116122"
-  };
- 
- firebase.initializeApp(config);
- 
- var database = firebase.database();
+};
+
+firebase.initializeApp(config);
+
+var database = firebase.database();
 
 
 $(document).ready(function () {
@@ -21,6 +21,10 @@ var longtitude;
 var latitude;
 var inputRadius;
 var inputResults;
+var yourName;
+var username;
+var trailGoal;
+var trailFavorite;
 
         // Get the modal
         var modal = document.getElementById('locationModal');
@@ -100,6 +104,13 @@ function zipCode() {
             }
         })
     };
+    //empties form after call
+    $(".city-input").val("");
+    $(".state-input").val("");
+    $(".zip-input").val("");
+    $(".radius-input").val("");
+    $(".results-input").val("");
+    $(".date-input").val("");
 };
 
 //gets the longitude and lattitude for the zip you entered 
@@ -167,14 +178,11 @@ function trailTest() {
             };
             trailID = response.trails[i].id
 
-            $(".trail-results").append("<tr><td>" + trailName + "</td><td>" + trailLocation + "</td><td>" + trailLength + "</td><td>" + trailAscent + "</td><td>" + trailStars + "</td><td>" + simpleTrailDifficutly + "</td><td>" + "<a href='trail.html' class='new-trail-id' ID= " + trailID + ">View Trail</div> </a>" + "</td></tr>");
+            $(".trail-results").append("<tr><td>" + trailName + "</td><td>" + trailLocation + "</td><td>" + trailLength + "</td><td>" + trailAscent + "</td><td>" + trailStars + "</td><td>" + simpleTrailDifficutly + "</td><td>" + "<a href='trail.html'><button  class= new-trail-id ID= " + trailID + ">View Trail</button> </a>" + "</td></tr>");
         };
 
     })
 };
-// $(document).on("click", ".new-trail-id", function(event){
-//     event.preventDefault();
-// })
 
 
 //ajax call for when you view details of the trail you clicked on
@@ -203,15 +211,100 @@ $(document).on("click", ".search", zipCode);
 $(document).on("click", ".new-trail-id", newTrail);
 
 //creating a username ?
-$(document).on("click", ".name-button", function(){
+$(document).on("click", ".name-button", function () {
     event.preventDefault();
-    var yourName =$(".user-name").val()
-    console.log(yourName);
-    var user = {
-        name: yourName,
-        favorites: "",
-        goal: "",
-       };
-       database.ref("/users").push(user)
+    yourName = $(".user-name").val()
+
+
+    //    database.ref("/users").push(user)
+    if (typeof (Storage) !== "undefined") {
+        // Store
+        localStorage.setItem("user", yourName);
+        //console.log(yourName);
+        // Retrieve
+
+        username = localStorage.getItem("user")
+        console.log(username);
+        if (username === "") {
+            alert("no user selected");
+        } else {
+            loadFavorites();
+        };
+    };
 });
+
+
+
+$(document).on("click", ".favorite", loadFavorites);
+//function to load favorites of user
+function loadFavorites() {
+
+
+    database.ref().on("child_added", function (childSnapshot, prevChildKey) {
+        //create variables for result
+        var trailName = "";
+        var trailLocation = "";
+        var trailAscent = "";
+        var trailLength = "";
+        var trailStars = "";
+        var trailDifficulty = "";
+        var simpleTrailDifficulty = "";
+        var trailID = "";
+        $(".myfavoritetrails").empty();
+        //output database to test
+        console.log(childSnapshot.val());
+
+        var favoriteTrail = Object.values(childSnapshot.val())
+        
+        
+            for (i = 0; i < favoriteTrail.length; i++) {
+                if (username.toUpperCase() === favoriteTrail[i].name.toUpperCase()) {
+                    var queryURL = "https://www.hikingproject.com/data/get-trails-by-id?ids=" + favoriteTrail[i].favorites + "&key=" + APIKeys.hiking;
+
+                    // Creating an AJAX call for the specific trail button being clicked
+                    $.ajax({
+                        url: queryURL,
+                        method: "GET"
+                    }).then(function (response) {
+                        //console.log(response)
+                        //console.log(response.trails[0].id)
+                        trailName = response.trails[0].name;
+                        trailLocation = response.trails[0].location;
+                        trailAscent = response.trails[0].ascent;
+                        trailLength = response.trails[0].length;
+                        trailStars = response.trails[0].stars;
+                        trailDifficulty = response.trails[0].difficulty;
+                        //logic to change difficulty from api to simple ratings
+
+                        if (trailDifficulty === "Green") {
+                            simpleTrailDifficutly = "Very Easy";
+                        } else if (trailDifficulty === "greenBlue") {
+                            simpleTrailDifficutly = "Easy";
+                        } else if (trailDifficulty === "Blue") {
+                            simpleTrailDifficutly = "Moderate";
+                        } else if (trailDifficulty === "blueBlack") {
+                            simpleTrailDifficutly = "Somewhat Hard";
+                        } else if (trailDifficulty === "Black") {
+                            simpleTrailDifficutly = "Hard";
+                        } else if (trailDifficulty === "dblack") {
+                            simpleTrailDifficutly = "Very Hard";
+                        } else {
+                            //     simpleTrailDifficulty="Unknown";
+                            // };
+                        };
+                        trailID = response.trails[0].id
+
+                        $(".myfavoritetrails").append("<tr><td>" + trailName + "</td><td>" + trailLocation + "</td><td>" + trailLength + "</td><td>" + trailAscent + "</td><td>" + trailStars + "</td><td>" + simpleTrailDifficutly + "</td><td>" + "<a href='trail.html'><button  class= new-trail-id ID= " + trailID + ">View Trail</button> </a>" + "</td></tr>");
+
+                    });
+
+                };
+
+
+            };
+        
+
+
+    });
+};
 
