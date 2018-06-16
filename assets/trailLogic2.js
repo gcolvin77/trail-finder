@@ -64,8 +64,14 @@ showWeather(trailLat, trailLong, date);
             url: sunriseURL,
             method: "GET"
              }).then(function (response) { 
-                var sunrise = response.results.sunrise;
-                var sunset = response.results.sunset;
+                var sunrise = (response.results.sunrise);
+                var sunset = (response.results.sunset);
+
+
+
+
+                /* var sunrise =  */
+                console.log(typeof sunrise);
 
                 $("#trail-sunrise").html("Sun information for " + date + ":<br>Sunrise: " + sunrise + "<br>Sunset: " + sunset);
                 
