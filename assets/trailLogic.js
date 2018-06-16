@@ -172,6 +172,7 @@ function trailTest() {
             trailLong = response.trails[i].longitude;
             trailIMG = response.trails[i].imgMedium;
             trailSummary = response.trails[i].summary;
+            trailURL = response.trails[i].url;
 
             $(".trail-results").append("<tr><td>" + trailName + "</td><td>" + trailLocation + "</td><td>" + trailLength +
              "</td><td>" + trailAscent + "</td><td>" + trailStars + "</td><td>" + simpleTrailDifficutly + "</td><td>" +
@@ -182,6 +183,8 @@ function trailTest() {
             $("#button" + i).data("newTrailLong", trailLong); 
             $("#button" + i).data("newTrailImage", trailIMG); 
             $("#button" + i).data("newTrailSummary", trailSummary);  
+            $("#button" + i).data("newTrailURL", trailURL); 
+
              
         };
 
@@ -202,6 +205,7 @@ $(document).on("click", ".new-trail-id", function(){
         var newTrailLocation = $(this).data("newTrailLocation");
         var newTrailImage = $(this).data("newTrailImage");
         var newTrailSummary = $(this).data("newTrailSummary");
+        var newTrailURL = $(this).data("newTrailURL");
         
         localStorage.setItem("hikeDate", newDate);
         localStorage.setItem("trailName", newTrailName); 
@@ -210,6 +214,7 @@ $(document).on("click", ".new-trail-id", function(){
         localStorage.setItem("trailImg", newTrailImage); 
         localStorage.setItem("trailSummary", newTrailSummary); 
         localStorage.setItem("trailLocation", newTrailLocation); 
+        localStorage.setItem("trailURL", newTrailURL);
 
         window.open("trail.html", "_blank"); 
 
