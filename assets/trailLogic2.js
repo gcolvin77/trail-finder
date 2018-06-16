@@ -7,14 +7,14 @@ var trailLong = localStorage.getItem("trailLong");
 var trailImg = localStorage.getItem("trailImg"); 
 var trailSummary =localStorage.getItem("trailSummary"); 
 var trailLocation = localStorage.getItem("trailLocation");
+var trailURL = localStorage.getItem("trailURL");
+var formattedDate = "";
 
-
-console.log (trailLat);
-console.log (trailLong);
-console.log (trailImg);
-console.log("trail name:" + trail);
 $("#display-trail-name").html(trail); 
 $("#trail-summary").html(trailSummary + "<br><br><img src=" + trailImg + " id= trailImage></img>");
+$("#trail-url").html("<a href=" + trailURL + " target=&quot_blank&quot>Click for more info</a>");
+console.log(trailURL);
+
 
 showWeather(trailLat, trailLong, date);
 
@@ -23,14 +23,15 @@ showWeather(trailLat, trailLong, date);
     if (date != ""){
     var a = moment();
     var b = moment(date);
-    var weatherDate = b.diff(a, 'days') + 1; 
-    console.log(a);
-    console.log("weatherDate: " + weatherDate); 
+    var weatherDate = b.diff(a, 'days') + 1;         
+ 
  } 
-    else {weatherDate = 0;
-        console.log("weatherDate: " + weatherDate); 
-        date = "today"
+    else {
+        weatherDate = 0;  //pulls today's weather info
+        date = moment().format('MMM-DD-YYYY');
+        
     }
+
     if (weatherDate <= 15){
         var weatherQueryURL = "https://api.openweathermap.org/data/2.5/forecast/daily?lat=" + trailLat + 
         "&lon=" + trailLong + "&cnt=16&units=imperial&APPID=166a433c57516f51dfab1f7edaed8413";       
@@ -39,7 +40,7 @@ showWeather(trailLat, trailLong, date);
          url: weatherQueryURL,
          method: "GET"
           }).then(function (response) {        
-              console.log(response);
+              
              var high = parseInt(response.list[weatherDate].temp.max);
              var low = parseInt(response.list[weatherDate].temp.min);
              var wind = response.list[weatherDate].speed;
@@ -48,17 +49,14 @@ showWeather(trailLat, trailLong, date);
                  $("#trail-weather").html("Weather for " + date + ":<br> High Temp: " + high + " F<br> Low Temp: " + low +
                  " F<br> Wind Speed: " + wind  +  " MPH <br> Conditions: " + condition);
          });  //end .then function after AJAX call
-
-
          
     } //end if
 
         else {
-        $("#trail-weather").html("Weather information not <br> available for " + date);
+        $("#trail-weather").html("Weather information not <br> available for that day");
         }
 
-
-        var formattedDate = moment(date).format('YYYY-MM-DD');
+         formattedDate = moment(date).format('YYYY-MM-DD');
         
         var sunriseURL = "https://api.sunrise-sunset.org/json?lat=" + trailLat + "&lng=" + trailLong + "&date=" + formattedDate
 
@@ -70,9 +68,7 @@ showWeather(trailLat, trailLong, date);
                 var sunset = response.results.sunset;
 
                 $("#trail-sunrise").html("Sun information for " + date + ":<br>Sunrise: " + sunrise + "<br>Sunset: " + sunset);
-                console.log(sunriseURL);
-                console.log(response);
-
+                
               }); //end sunrise ajax call
 
               
