@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Trail Details</title>
@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
     <!-- JavaScript -->
     <script src="APIKeys.js"></script>
     <script type="text/javascript" src="assets/moment.js"></script>
@@ -25,13 +25,13 @@
 
 <body>
     <div class="container">
-        
+
         <div class="row">
             <div class="col-md-12">
-                <div class="jumbotron jumbotron-fluid jumbo2">
+                <div class="jumbotron jumbotron-fluid jumbo2 display-4">
                     <div class="container">
                         <h1 id="display-trail-name"></h1>
-                        <p class="lead" ></p>
+                        <p class="lead"></p>
                     </div>
                 </div>
             </div>
@@ -40,20 +40,8 @@
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <input type="checkbox" aria-label="Checkbox for following text input">
-                                </div>
-                            </div>
-                            <div type="text" class="card favs" aria-label="Text input with checkbox">Add to favorites?</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-body page2-box" id="trail-summary">                                
+                        <div class="card page2-box">
+                            <div class="card-body" id="trail-summary">
                             </div>
                         </div>
                     </div>
@@ -62,35 +50,34 @@
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-body" id="trail-url">                                
+                        <div class="card page2-box">
+                            <div class="card-body " id="trail-url">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-body page2-box" id="trail-weather">
+                        <div class="card page2-box">
+                            <div class="card-body" id="trail-weather">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-body page2-box" id="trail-sunrise">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        <div class="card page2-box">
+                            <div class="card-body" id="trail-sunrise">
 
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
 
-        </div>
+    </div>
 
 </body>
 
