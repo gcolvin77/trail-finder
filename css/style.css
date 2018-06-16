@@ -9,27 +9,43 @@
   
  .display-4 {
     color:   rgb(2, 2, 2);
-    font-weight: 900;
-   
-  
+    font-size: 600%;
+    font-weight: bolder;
+    font-family: 'Amatic SC', cursive;
  }
  .lead {
     color: rgb(2,2,2);
-    font-size: 30px;
-    font-weight: 700;
+    font-size: 300%;
+    font-weight: bolder;
+    font-family: 'Amatic SC', cursive;
+ }
+ #inlineFormInput {
+  font-size: 150%;
+  font-weight: bolder;
+  font-family: 'Amatic SC', cursive;
+ }
+ #datepicker{
+  font-size: 150%;
+  font-weight: bolder;
+  font-family: 'Amatic SC', cursive;
+ }
+ .btn{
+  font-size: 150%;
+  font-weight: bolder;
+  font-family: 'Amatic SC', cursive;
  }
  .jumbo2 {
    background-image: url("pics/trails.jpg")
  }
 
  .page2-box {
-    font-size: 25px;
-    font-weight: 600;
     border-style: solid;
-    border-color: green;
-    border-width: 4px;
-    background-color: rgb(250, 232, 209);
+    border-radius: 2%;
+    border-color: whitesmoke;
+    border-width: 1px;
+    background-color: rgba(51, 102, 0, 0.712);
     justify-content: center;
+    margin: 2% 2% 2% 2%;
     
  }
 
@@ -39,23 +55,41 @@
 }
 
 #display-trail-name {
-  font-size: 55px;
-
+  font-size: 70%;
+  font-weight: bolder;
+  font-family: 'Amatic SC', cursive;
 }
 
 
+
 tr:nth-child(even) {
-  background: lightgreen;
+  background-color: gray;
   font-size: 18px;
 }
 
 tr:nth-child(odd) {
-  background: tan;
+  background-color: lightgray;
   font-size: 18px;
 }
 
-th{
-  font-size: 20px;
+#dark-green-background{
+  background-color: rgba(51, 102, 0, 0.712);
+}
+.dark-green-font{
+  text-decoration-color:rgba(51, 102, 0, 0.712);
+}
+
+a {
+  color: goldenrod;
+  font-family: 'Amatic SC', cursive;
+  font-size: 200%;
+}
+body {
+  background-color: rgba(0, 0, 0, 0.548)
+}
+
+#login-bar{
+  padding:1% 1% 1% 1%;
 }
  
 
