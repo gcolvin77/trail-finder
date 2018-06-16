@@ -58,7 +58,7 @@ function zipCode() {
 
     //logic for input
     //if location is empty then display an alert
-    if (inputCity === "" && inputState === "" && inputZip === "") {
+    if ((inputCity === "" && inputState === "" && inputZip === "") || (inputCity != "" && inputState === "") || (inputCity === "" && inputState != "")) {
         $('#exampleModal').modal('show');
 
 
