@@ -15,7 +15,7 @@ var database = firebase.database();
 
 $(document).ready(function () {
 
-});
+
 
 var longtitude;
 var latitude;
@@ -25,6 +25,7 @@ var yourName;
 var username;
 var trailGoal;
 var trailFavorite;
+
 
         // Get the modal
         var modal = document.getElementById('locationModal');
@@ -76,14 +77,7 @@ function zipCode() {
         };
 
 
-        console.log("input: " + inputCombined);
-        console.log("output: " + outputCombined);
-        console.log("final output: " + finalOutput);
-
-
         var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + finalOutput + "&key=" + APIKeys.google
-
-
 
         // Creating an AJAX call
         $.ajax({
@@ -110,7 +104,7 @@ function zipCode() {
     $(".zip-input").val("");
     $(".radius-input").val("");
     $(".results-input").val("");
-    $(".date-input").val("");
+    
 };
 
 //gets the longitude and lattitude for the zip you entered 
@@ -130,7 +124,6 @@ function trailTest() {
 
     var queryURL = "https://www.hikingproject.com/data/get-trails?lat=" + latitude + "&lon=" + longitude + "&maxDistance=" + inputRadius + "&maxResults=" + inputResults + "&key=" + APIKeys.hiking
 
-    // Creating an AJAX call for the specific movie button being clicked
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -173,34 +166,26 @@ function trailTest() {
             } else {
                 //     simpleTrailDifficulty="Unknown";
                 // };
-                console.log("TD: " + trailDifficulty);
-                console.log("SD: " + simpleTrailDifficutly);
+                
             };
-            trailID = response.trails[i].id
+            trailLat = response.trails[i].latitude;
+            trailLong = response.trails[i].longitude;
+            trailIMG = response.trails[i].imgMedium;
+            trailSummary = response.trails[i].summary;
 
-            $(".trail-results").append("<tr><td>" + trailName + "</td><td>" + trailLocation + "</td><td>" + trailLength + "</td><td>" + trailAscent + "</td><td>" + trailStars + "</td><td>" + simpleTrailDifficutly + "</td><td>" + "<a href='trail.html'><button  class= new-trail-id ID= " + trailID + ">View Trail</button> </a>" + "</td></tr>");
+            $(".trail-results").append("<tr><td>" + trailName + "</td><td>" + trailLocation + "</td><td>" + trailLength +
+             "</td><td>" + trailAscent + "</td><td>" + trailStars + "</td><td>" + simpleTrailDifficutly + "</td><td>" +
+              "<button class= new-trail-id id= button" + i + ">View Trail</button>" + "</td></tr>");
+            $("#button" + i).data("newTrailName", trailName);  
+            $("#button" + i).data("newTrailLocation", trailLocation); 
+            $("#button" + i).data("newTrailLat", trailLat); 
+            $("#button" + i).data("newTrailLong", trailLong); 
+            $("#button" + i).data("newTrailImage", trailIMG); 
+            $("#button" + i).data("newTrailSummary", trailSummary);  
+             
         };
 
     })
-};
-
-
-//ajax call for when you view details of the trail you clicked on
-function newTrail() {
-    var currBtn = $(this).attr('ID');
-    //alert(currBtn);
-    var queryURL = "https://www.hikingproject.com/data/get-trails-by-id?ids=" + currBtn + "&key=" + APIKeys.hiking;
-
-    // Creating an AJAX call for the specific trail button being clicked
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (response) {
-        console.log(response);
-        trailURL = response.trails[0].url;
-        console.log(trailURL);
-    });
-
 };
 
 
@@ -208,12 +193,34 @@ function newTrail() {
 $(document).on("click", ".search", zipCode);
 
 //call search function on click of submit button
-$(document).on("click", ".new-trail-id", newTrail);
+$(document).on("click", ".new-trail-id", function(){
+
+        var newDate = $("#datepicker").val().trim();
+        var newTrailName = $(this).data("newTrailName"); 
+        var newTrailLat = $(this).data("newTrailLat");
+        var newTrailLong = $(this).data("newTrailLong");
+        var newTrailLocation = $(this).data("newTrailLocation");
+        var newTrailImage = $(this).data("newTrailImage");
+        var newTrailSummary = $(this).data("newTrailSummary");
+        
+        localStorage.setItem("hikeDate", newDate);
+        localStorage.setItem("trailName", newTrailName); 
+        localStorage.setItem("trailLat", newTrailLat);      
+        localStorage.setItem("trailLong", newTrailLong); 
+        localStorage.setItem("trailImg", newTrailImage); 
+        localStorage.setItem("trailSummary", newTrailSummary); 
+        localStorage.setItem("trailLocation", newTrailLocation); 
+
+        window.open("trail.html", "_blank"); 
+
+});
+
+
 
 //creating a username ?
 $(document).on("click", ".name-button", function () {
     event.preventDefault();
-    yourName = $(".user-name").val()
+    yourName = $(".user-name").val().trim();
 
 
     //    database.ref("/users").push(user)
@@ -307,4 +314,9 @@ function loadFavorites() {
 
     });
 };
+
+
+
+}); // end document ready
+
 

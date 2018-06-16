@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Trail Finder</title>
@@ -10,6 +11,8 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
     <link rel="stylesheet" href="css/pikaday.css">
     <link rel="stylesheet" href="css/site.css">
 
@@ -24,11 +27,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    
     <!-- JavaScript -->
     <script src="APIKeys.js"></script>
     <script type="text/javascript" src="assets/moment.js"></script>
     <script src="assets/trailLogic.js"></script>
+    
+
+
 
 </head>
 
@@ -59,9 +65,12 @@
             <div class="col-md-12">
                 <div class="jumbotron jumbotron-fluid">
                     <div class="container">
-                        <h1 class="display-4">Fluid jumbotron</h1>
-                        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-                            <br><br><br><br><br><br><br><br><br>
+
+                        <h1 class="display-4">Trail Finder</h1>
+                        <p class="lead">Let us help you find your next adventure</p>
+                      
+                           <br><br><br><br><br><br><br><br><br>
+
                     </div>
                 </div>
             </div>
@@ -88,19 +97,19 @@
                                     <div class="form-row align-items-center">
                                         <div class="col-auto">
                                             <label class="sr-only" for="inlineFormInput">City</label>
-                                            <input type="text" class="form-control mb-2 city-input" id="inlineFormInput" placeholder="city">
+                                            <input type="text" class="form-control mb-2 city-input" id="inlineFormInput" placeholder="City">
                                         </div>
                                         <div class="col-auto">
                                             <label class="sr-only" for="inlineFormInput">State</label>
-                                            <input type="text" class="form-control mb-2 state-input" id="inlineFormInput" placeholder="state">
+                                            <input type="text" class="form-control mb-2 state-input" id="inlineFormInput" placeholder="State">
                                         </div>
                                         <div class="col-auto">
                                             <label class="sr-only" for="inlineFormInput">Zip Code</label>
-                                            <input type="text" class="form-control mb-2 zip-input" id="inlineFormInput" placeholder="zip">
+                                            <input type="text" class="form-control mb-2 zip-input" id="inlineFormInput" placeholder="Zip">
                                         </div>
                                         <div class="col-auto">
                                             <label class="sr-only" for="inlineFormInput">Date</label>
-                                            <input type="text" class="form-control mb-2 date-input" id="datepicker" placeholder="date">
+                                            <input type="text" class="form-control mb-2 date-input" id="datepicker" placeholder="Date">
                                         </div>
                                         <div class="col-auto">
                                             <label class="sr-only" for="inlineFormInput">Radius</label>
@@ -108,7 +117,7 @@
                                         </div>
                                         <div class="col-auto">
                                             <label class="sr-only" for="inlineFormInput">Results</label>
-                                            <input type="text" class="form-control mb-2 results-input" id="inlineFormInput" placeholder="Results">
+                                            <input type="text" class="form-control mb-2 results-input" id="inlineFormInput" placeholder=" # of Results">
                                         </div>
                                         <div class="col-auto">
                                             <button type="submit" class="btn btn-success mb-2 search">Find My Trail</button>
@@ -148,11 +157,11 @@
                                     <tr class="bg-success">
                                         <th scope="col">Name</th>
                                         <th scope="col">Location</th>
-                                        <th scope="col">length</th>
-                                        <th scope="col">ascent</th>
-                                        <th scope="col">stars</th>
-                                        <th scope="col">difficulty</th>
-                                        <th scope="col">View Trail</th>
+                                        <th scope="col">Length</th>
+                                        <th scope="col">Ascent</th>
+                                        <th scope="col">Stars</th>
+                                        <th scope="col">Difficulty</th>
+                                        <th scope="col">View</th>
                                     </tr>
                                 </thead>
                                 <tbody class="trail-results">
@@ -177,10 +186,10 @@
                                         <tr class="bg-success">
                                             <th scope="col">Name</th>
                                             <th scope="col">Location</th>
-                                            <th scope="col">length</th>
-                                            <th scope="col">ascent</th>
-                                            <th scope="col">stars</th>
-                                            <th scope="col">difficulty</th>
+                                            <th scope="col">Length</th>
+                                            <th scope="col">Ascent</th>
+                                            <th scope="col">Stars</th>
+                                            <th scope="col">Difficulty</th>
                                             <th scope="col">View Trail</th>
                                         </tr>
                                     </thead>
@@ -224,5 +233,6 @@
 
 
 </body>
+
 
 </html>
