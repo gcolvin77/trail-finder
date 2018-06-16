@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Trail Details</title>
@@ -16,38 +17,21 @@
 
     <!-- JavaScript -->
     <script src="APIKeys.js"></script>
+    <script type="text/javascript" src="assets/moment.js"></script>
     <script src="assets/trailLogic.js"></script>
+    <script src="assets/trailLogic2.js"></script>
+
 </head>
 
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card bg-success">
-                    <div class="card-body">
-                        <form>
-                            <div class="form-row justify-content-end">
-                                <div class="col-auto">
-                                    <label class="sr-only" for="inlineFormInput">Name</label>
-                                    <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Jane Doe">
-                                </div>
-                                <div class="col-auto">
-                                </div>
-                                <div class="col-auto">
-                                    <button type="submit" class="btn btn-light mb-2 name-button">Start</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <div class="row">
             <div class="col-md-12">
                 <div class="jumbotron jumbotron-fluid jumbo2">
                     <div class="container">
-                        <h1 class="display-4">Trail Name Goes Here</h1>
-                        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                        <h1 id="display-trail-name"></h1>
+                        <p class="lead" ></p>
                     </div>
                 </div>
             </div>
@@ -69,8 +53,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-body">
-                                Trail details go here
+                            <div class="card-body page2-box" id="trail-summary">
+                                
                             </div>
                         </div>
                     </div>
@@ -89,8 +73,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-body">
-                                Weather goes here
+                            <div class="card-body page2-box" id="trail-weather">
                             </div>
                         </div>
                     </div>
@@ -98,8 +81,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-body">
-                                Sunrise/Sunset goes here
+                            <div class="card-body page2-box" id="trail-sunrise">
+                                
                             </div>
                         </div>
                     </div>
@@ -107,7 +90,7 @@
 
             </div>
 
-
+        </div>
 
         </div>
 
