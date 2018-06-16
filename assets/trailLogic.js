@@ -17,14 +17,12 @@ $(document).ready(function () {
 
 
 
-var longtitude;
 var latitude;
-var inputRadius;
-var inputResults;
 var yourName;
 var username;
-var trailGoal;
-var trailFavorite;
+var inputRadius = 30
+var inputResults = 20;
+
 
 
         // Get the modal
@@ -94,7 +92,7 @@ function zipCode() {
                 console.log("lattitude: " + response.results[0].geometry.location.lat);
                 console.log("longitude: " + response.results[0].geometry.location.lng);
                 console.log("location: " + response.results[0].formatted_address);
-                trailTest();
+                findTrail();
             }
         })
     };
@@ -102,27 +100,13 @@ function zipCode() {
     $(".city-input").val("");
     $(".state-input").val("");
     $(".zip-input").val("");
-    $(".radius-input").val("");
-    $(".results-input").val("");
-    
+
 };
 
 //gets the longitude and lattitude for the zip you entered 
-function trailTest() {
-    //clear div
-    //event.preventDefault();
-    inputRadius = $(".radius-input").val().trim();
-    if (inputRadius === "") {
-        inputRadius = 30;
-    }
-    inputResults = $(".results-input").val().trim();
-    if (inputResults === "") {
-        inputResults = 10;
-    } else if (inputResults > 500) {
-        inputResults = 500;
-    }
+function findTrail() {
 
-    var queryURL = "https://www.hikingproject.com/data/get-trails?lat=" + latitude + "&lon=" + longitude + "&maxDistance=" + inputRadius + "&maxResults=" + inputResults + "&key=" + APIKeys.hiking
+    var queryURL = "https://www.hikingproject.com/data/get-trails?lat=" + latitude + "&lon=" + longitude + "&maxDistance=" + inputRadius+ "&maxResults=" + inputResults + "&key=" + APIKeys.hiking
 
     $.ajax({
         url: queryURL,
@@ -139,8 +123,7 @@ function trailTest() {
         var trailLength = "";
         var trailStars = "";
         var trailDifficulty = "";
-        var simpleTrailDifficulty = "";
-        var trailID = "";
+
         $(".trail-results").empty();
         for (i = 0; i < response.trails.length; i++) {
             trailName = response.trails[i].name;
@@ -222,7 +205,7 @@ $(document).on("click", ".new-trail-id", function(){
 
 
 
-//creating a username ?
+//creating a username 
 $(document).on("click", ".name-button", function () {
     event.preventDefault();
     yourName = $(".user-name").val().trim();
